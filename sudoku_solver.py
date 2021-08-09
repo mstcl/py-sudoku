@@ -24,7 +24,7 @@ def form_board(sudoku_string):
         temp = []
         for block in row:
             temp.append(int(block))
-        sudoku.append(temp)              
+        sudoku.append(temp)
 
 def update():
     global board
@@ -51,7 +51,7 @@ def verify(board,row,col,digit):
     for i in range(3):
         for j in range(3):
             if box_row+i != row and box_col+j != col and board[box_row+i][box_col+j] == digit:
-                return False    
+                return False
     return True
 
 def is_solution(board):
@@ -63,7 +63,7 @@ def is_solution(board):
         for col in range(9):
             digit = board[row][col]
             if not verify(board,row,col,digit):
-                return False  
+                return False
     return True
 
 def prepare():
@@ -102,7 +102,7 @@ def is_possible(row,col,digit):
     for i in range(3):
         for j in range(3):
             if isinstance(board[box_row+i][box_col+j],int) and board[box_row+i][box_col+j] == digit:
-                return False    
+                return False
     return True
 
 def helper():
@@ -221,7 +221,6 @@ def naked_single_col():
     update()
     return flag
 
-                          
 def naked_pairs_row():
     flag = False
     for row in range(0,5):
@@ -281,7 +280,7 @@ def backtrack_possible(row,col,digit):
     for i in range(0,3):
         for j in range(0,3):
             if bt_board[box_row+i][box_col+j] == digit:
-                return False    
+                return False
     return True
 
 def solve():
@@ -361,4 +360,3 @@ if bt_count > 1:
 if not valid_sudoku:
     print("")
     print("This sudoku has " + str(total_solutions) + " solutions. It is not valid. The first solution found was displayed and the elapsed time reflects the time taken to compute every solution.")
-
